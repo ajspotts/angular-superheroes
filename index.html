@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="superHero">
-<head>
-  <meta charset="UTF-8">
-  <title>Superhero Phone Book</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-  <script src="app.js"></script>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body ng-controller="superHeroCtrl as vm">
-  <div ng-repeat="superHero in vm.superHeroes">
-    <p>
-      {{$index + 1}}.  {{superHero.name}} - {{superHero.phone}} - {{superHero.universe}}
-    </p>
-    <img ng-src="{{superHero.imgUrl}}" />
-  </div>
-
-
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>Superhero Phone Book</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body ng-controller="superHeroCtrl as vm">
+    <div ng-repeat="superHero in vm.superHeroes | filter: vm.heroSearch">
+      <p>
+        <input type="text" ng-model="vm.heroSearch">
+      </p>
+      <p>
+        {{$index + 1}}.  {{superHero.name}} - {{superHero.phone}} - {{superHero.universe}}
+      </p>
+      <img ng-src="{{superHero.imgUrl}}" />
+    </div>
+  </body>
 </html>

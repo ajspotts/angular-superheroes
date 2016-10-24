@@ -13,4 +13,5 @@ angular
 
 function superHeroController() {
   this.superHeroes = superHeroData
-}
+  this.heroSearch= ''
+  }
