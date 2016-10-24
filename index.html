@@ -8,6 +8,12 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body ng-controller="superHeroCtrl as vm">
+  <div ng-repeat="superHero in vm.superHeroes">
+    <p>
+      {{$index + 1}}.  {{superHero.name}} - {{superHero.phone}} - {{superHero.universe}}
+    </p>
+    <img ng-src="{{superHero.imgUrl}}" />
+  </div>
 
 
 </body>
